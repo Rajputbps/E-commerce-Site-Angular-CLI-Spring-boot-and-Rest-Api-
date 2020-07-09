@@ -1,0 +1,249 @@
+<div class="container-fluid">
+  <div class="containerfluid">
+    <div *ngIf="itemrequest === 'buy'" class="row">
+      <div class="col m7 l7 imagesDiv hide-on-small-only"> 
+        <div style="padding: 0px 10px;" *ngIf="selectedAddressId == null">
+            <a style="margin-top: 15px; padding: 0px;" class="btn-large z-depth-5 modal-trigger" href="#addressmodal1">Select Shipping Address</a>
+        </div>
+        <div class="addressDisplay" *ngIf="selectedAddressId != null">
+          <div style="padding-top:3px;padding-left:25px;">
+            <h6 style="color: #fff;">Shipping Address  <button (click)="removeAddress(selectedAddressId)" href="#"  class="btn-flat right"><i style="  color: rgb(255, 0, 0);" class="material-icons">clear</i></button></h6>
+             
+            <div class="divider" style="margin-right: 25px;"></div>  
+            <div >
+              <div *ngFor="let shippingAdd of address">
+                <div *ngIf="selectedAddressId === shippingAdd.addressId">    
+                    <p> {{shippingAdd.streetAddress1}}, {{shippingAdd.streetAddress2}}, {{shippingAdd.city}}, {{shippingAdd.state}}, <br> ( {{shippingAdd.pinCode}} )<br>Phone No. : {{shippingAdd.phoneNumber}}</p>
+                </div>
+              </div>
+            </div> 
+          </div> 
+          </div>
+        <div class="orderS">
+            <div style="margin-top: 5%;"><span class="heading">Items</span></div>
+            <div class="divider"></div><br>
+            <div class="row"> 
+              <div class="col l5">
+                <div class="imagesDiv1">
+                    <img src="https://scx2.b-cdn.net/gfx/news/hires/2012/tomato.jpg" alt="" class="imagesResponsive">
+                </div>
+              </div>
+              <div class="col l7">
+                <div style="margin-left: 5%;">   
+                <div>
+                  <p>{{product.product_name}}</p> 
+                  <p>Price: {{product.product_price | currency:'INR'}}</p>
+                  <p>Quantity:</p>
+                  <a class="btn-floating red" (click)="productQuantity(quantity.value,1)"><i class="tiny material-icons">remove</i></a>
+                  <input type="number" min="1" max="10"  value="{{productQuantiti}}" style="width: 50px; border-style: solid; border-width: 1px; height: 40px; border-color: greenyellow; background-color: white;" #quantity >
+                  <a class="btn-floating red" (click)="productQuantity(quantity.value,2)"><i class="tiny material-icons">add</i></a>
+                </div>
+                
+                    
+                </div>
+              </div>
+              <div class="divider"></div><br>
+            </div>
+        </div>
+      </div>
+      <div class="col s12 m4 l4 imagesDiv" style="margin-left: 10px;">
+        <div class="orderS">
+          <span class="heading">Order Summmary</span>
+          <div class="divider"></div><br>
+          <div>
+              <p class="orderSummery"> <span class="left-align">{{product.product_name}}</span> <span class="right">{{productQuantiti}} <b style="color: red;">X</b> {{product.product_price | currency:'INR'}} </span></p>
+            <div class="divider" style=" margin-top:5%;"></div> 
+            <p class="orderSummery">Order Total: 1 <span class="right">{{product.product_price *productQuantiti | currency:'INR'}} /-</span> </p>
+          </div>
+          <div style="color: #fff;">
+              <p>
+                  <label style="color: #fff;">
+                    <input class="with-gap" name="group3" type="radio" #COD />
+                    <span>Cash On Delivery</span>
+                  </label>
+              </p>
+                <p>
+                    <label style="color: #fff;">
+                      <input class="with-gap" name="group3" type="radio" #OP />
+                      <span>Online payment</span>
+                    </label>
+                </p>
+          </div> 
+          <form ngNoForm action=" https://sandboxsecure.payu.in/_payment" name="payuform" method="POST" > 
+
+             
+            <div class="form-group"> 
+              <input type="text" hidden class="form-control" id="firstname" name="firstname" [(ngModel)]="payuform.firstname">
+            </div>
+            <div class="form-group"> 
+              <input type="email" hidden class="form-control" id="email" name="email" [(ngModel)]="payuform.email">
+            </div>
+            <div class="form-group"> 
+              <input type="number" hidden class="form-control" id="phone" name="phone" [(ngModel)]="payuform.phone">
+            </div>
+            <div class="form-group"> 
+              <input type="number" value="payuform.amount" class="form-control" id="amount" name="amount" [(ngModel)]="payuform.amount">
+            </div>
+            <textarea hidden name="surl" id="surl" ng-model="surl" rows="2" cols="2" hidden [(ngModel)]="payuform.surl"></textarea>
+            <textarea hidden name="furl" id="furl" ng-model="furl" rows="2" cols="2" hidden [(ngModel)]="payuform.furl"></textarea>
+            <textarea hidden name="key" id="key" ng-model="key" rows="2" cols="2" hidden [(ngModel)]="payuform.key"></textarea>
+            <textarea hidden name="hash" id="hash" ng-model="hash" rows="2" cols="2" hidden [(ngModel)]="payuform.hash"></textarea>
+            <textarea hidden name="txnid" id="txnid" ng-model="txnid" rows="2" cols="2" hidden [(ngModel)]="payuform.txnid"></textarea>
+            <textarea hidden name="service_provider" id="service_provider" [(ngModel)]="payuform.service_provider" ng-model="service_provider" rows="2" cols="2"></textarea>
+            <textarea hidden name="productinfo" id="" cols="2" rows="2" ng-model="productinfo" [(ngModel)]="payuform.productinfo"></textarea>
+
+            <div>
+              <button  class="btn checkoutButton" (click)="confirmPayment(product.productId,selectedAddressId,product.product_price *productQuantiti)"><b>Process To Checkout</b></button>
+            </div>
+            </form>
+        </div>
+      </div>
+    </div>
+
+<!-- dddddddddddddddddddddddddddddddddddddddddddd -->
+
+<div class="row" *ngIf="itemrequest == 'carts'">
+  <div class="col m7 l7 imagesDiv hide-on-small-only"> 
+    <div style="padding: 0px 10px;" *ngIf="selectedAddressId == null">
+        <a style="margin-top: 15px; padding: 0px;" class="btn-large z-depth-5 modal-trigger" href="#addressmodal1">Select Shipping Address</a>
+    </div>
+    <div class="addressDisplay" *ngIf="selectedAddressId != null">
+      <div style="padding-top:3px;padding-left:25px;">
+        <h6 style="color: #fff;">Shipping Address <button (click)="removeAddress(selectedAddressId)" href="#"  class="btn-flat right"><i style="  color: rgb(255, 0, 0);" class="material-icons">clear</i></button></h6>
+        <div class="divider" style="margin-right: 25px;"></div>
+        <div >
+          <div *ngFor="let shippingAdd of address">
+            <div *ngIf="selectedAddressId === shippingAdd.addressId">
+                <p> {{shippingAdd.streetAddress1}}, {{shippingAdd.streetAddress2}}, {{shippingAdd.city}}, {{shippingAdd.state}}, <br> ( {{shippingAdd.pinCode}} )<br>Phone No. : {{shippingAdd.phoneNumber}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    <div class="orderS">
+        <div style="margin-top: 5%;"><span class="heading">Items {{cartItemCount}}</span></div>
+        <div class="divider"></div><br>
+        <div class="row" *ngFor="let ceckout of cart; let i = index"> 
+          <div class="col l5">
+            <div class="imagesDiv1">
+                <img src="https://scx2.b-cdn.net/gfx/news/hires/2012/tomato.jpg" alt="" class="imagesResponsive">
+            </div>
+          </div>
+          <div class="col l7">
+            <div style="margin-left: 5%;"> 
+            <div class="col l6 m6">
+              <p>{{ceckout.products.product_name}}</p>
+              <p>Price: {{ceckout.products.product_price | currency:'INR'}}</p>
+              <p>Quantity : <input type="number" value="1" placeholder="1" min="1" max="10" class="productQuantity" [(ngModel)]="quantity+i" (change)="onChange($event)"></p>
+                <!-- <div *ngIf="changeProductId == null || ceckout.products.productId !== changeProductId">
+                    <a class="btn-floating btn-small red" (click)="productQuantity(ceckout.products.productId,1,quantity.value)"><i class="material-icons">remove</i></a>
+                    <input type="text" value=" {{ productQuantiti ? Old : New }}" class="productQuantity" #quantity >
+                    <a class="btn-floating btn-small" (click)="productQuantity(ceckout.products.productId,2,quantity.value)"><i class="material-icons">add</i></a>
+                </div>
+                <div *ngIf="ceckout.products.productId === changeProductId">
+                    <a class="btn-floating btn-small red" (click)="productQuantity(ceckout.products.productId,1,quantity.value)"><i class="material-icons">remove</i></a>
+                    <input type="text" value="{{productQuantiti}}" class="productQuantity" #quantity >
+                    <a class="btn-floating btn-small" (click)="productQuantity(ceckout.products.productId,2,quantity.value)"><i class="material-icons">add</i></a>
+                </div> -->
+                
+               
+            </div>
+            
+            <div class="col l6 m6">
+              <a class="btn-small removeButton" ><b>Remove</b></a>
+            </div>
+            
+            </div>
+          </div>
+          <br><br>
+          <div class="divider"></div>
+        </div>
+    </div>
+  </div>
+  <div class="col s12 m4 l4 imagesDiv" style="margin-left: 10px;">
+    <div class="orderS">
+      <span class="heading">Order Summmary</span>
+      <div class="divider"></div>
+      <div *ngFor="let mceckout of cart">
+        <p class="orderSummery"> <span class="left-align">{{mceckout.products.product_name}}</span> <span class="right">  {{ mceckout.products.product_price | currency:'INR'}} </span></p>
+        <div class="divider" style=" margin-top:5%;"></div> 
+      </div>
+        <p class="orderSummery">Order Total: {{cartItemCount}} <span class="right">Rs. {{total}} /-</span> </p>
+      
+      <div style="color: #fff;">
+          <p>
+              <label style="color: #fff;">
+                <input class="with-gap" name="group3" type="radio"/>
+                <span>Cash On Delivery</span>
+              </label>
+            </p>
+            <p>
+                <label style="color: #fff;">
+                  <input class="with-gap" name="group3" type="radio" />
+                  <span>Online payment</span>
+                </label>
+              </p>
+      </div>
+      <div>
+        <a class="btn checkoutButton"><b>Process To Checkout</b></a>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+
+
+
+
+
+<!-- //Address popup -->
+
+<div id="addressmodal1" class="modal">
+  <div class="modal-content">
+    <h4>Address</h4>
+    
+    
+    <div class="row" >
+      <div class="col s12 m6" style="background-color: rgb(114, 236, 122); border-radius: 20px; padding-top: 6px;">
+        
+          <div class="card" style="background-color: rgb(98, 194, 103); border-radius: 20px;">
+              <div class="card-content white-text" style="margin-left: 95px; margin-right: 95px;padding-top: 50px;padding-bottom: 50px;">
+                  <a href="#editAddressmodal1" class=" modal-trigger" style="color: #fff;"><i class="large material-icons">add</i></a>
+              </div> 
+            </div>
+
+      </div>
+      <div class="col s12 m6" style="background-color: rgb(114, 236, 122); border-radius: 20px; padding-top: 6px;" *ngFor="let shippingAdd of address" >
+        <div>
+          <div class="card" style="background-color: rgb(98, 194, 103); border-radius: 20px;">
+            <div class="card-content white-text modal-close" (click)="selectedAddress(shippingAdd.addressId)">
+              <span class="card-title">{{shippingAdd.name}}</span>
+              <p> {{shippingAdd.streetAddress1}},<br> {{shippingAdd.streetAddress2}}, {{shippingAdd.city}}, {{shippingAdd.state}}, <br> ( {{shippingAdd.pinCode}} )<br>Phone No. : {{shippingAdd.phoneNumber}}</p>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+<!-- Enter Address -->
+<div id="editAddressmodal1" class="modal">
+    <div class="modal-content">
+ 
+    </div>
+  </div>
+          
+
+
+
+
+
+
+
+  </div>
+</div>

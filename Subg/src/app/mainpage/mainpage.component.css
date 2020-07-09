@@ -1,0 +1,27 @@
+.waves-effect{
+    background-color: #55fc79;
+}
+.tt{
+    padding-right: 5%;
+}
+
+.productWidth-Height{
+    height:"200px"; 
+    width:"100%";
+}
+
+.secondcarousel{
+    height: 100px;
+}
+.containerfluid{
+    padding-right: 10%;
+    padding-left: 10%;
+}
+.btn-large{
+    border-radius: 20px;
+}
+
+
+.card{
+    height: 250px;
+}

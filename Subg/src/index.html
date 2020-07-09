@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="theme-color" content=" rgba(114, 236, 122, 1)">
+  <title>Subg</title>
+  <base href="/">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css'>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js'></script>
+
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <script>
+    $(function(){
+  $('#mobile-menu').sidenav({edge: 'left'}); 
+  $('#subcategory-menu').sidenav();
+  $('#shoping-cart').sidenav({
+    edge:'right',
+    menuWidth: 5000
+  });
+});
+    </script>
+
+    <script>
+    $(document).ready(function(){
+  $('.button-collapse').sideNav({
+      menuWidth: 250, // Default is 300
+      edge: 'left', // Choose the horizontal origin
+      closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      draggable: true // Choose whether you can drag to open on touch screens
+    }
+  );
+  
+  // START OPEN
+  $('.button-collapse').sideNav('show');
+
+$(".dropdown-trigger").dropdown({
+  inDuration: 300,
+      outDuration: 225,
+      hover: true, 
+      belowOrigin: true, 
+      alignment: 'right' 
+});
+
+$('.tooltipped').tooltip();
+
+$('.slider').slider({
+  indicators:false
+});
+
+
+// $('.carousel.carousel-slider').carousel({
+//     fullWidth: true,
+//     indicators:false
+//   });
+ 
+        
+});
+    </script>
+
+<script>
+  $(document).ready(function(){
+    $('.modal-trigger').leanModal();
+  });
+  $('.modal-trigger').leanModal({
+      dismissible: true,  
+      opacity: .5,  
+      in_duration: 300,  
+      out_duration: 200,  
+      ready: function() { alert('Ready'); }, 
+      complete: function() { alert('Closed'); }  
+    }
+  );
+</script>
+
+<script>
+  $(document).ready(function(){
+ $('input.autocomplete').autocomplete({
+      data:{
+        "Apple":null,"Orange":null
+      },
+    });
+
+
+
+    $('.button-collapse-productAll').sideNav({
+      menuWidth: 240, // Default is 300
+      edge: 'left', // Choose the horizontal origin
+      closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      draggable: true // Choose whether you can drag to open on touch screens,
+    }
+  ); 
+  });
+
+
+</script>
+  
+
+  <app-root></app-root>
+</body>
+</html>

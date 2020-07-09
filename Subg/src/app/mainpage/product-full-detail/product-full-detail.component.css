@@ -1,0 +1,11 @@
+img.responsive-img, video.responsive-video {
+    width: 100%;
+    height: 105%;
+}
+div.offerDiv{
+    line-height: 45px;
+    background-color:rgb(103, 255, 83);
+    color: rgb(255, 255, 255);
+}
+
+ 

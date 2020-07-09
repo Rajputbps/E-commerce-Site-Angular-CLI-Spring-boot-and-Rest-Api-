@@ -1,0 +1,52 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col s12 m12 l7"><br>
+    <div class="carousel carousel-slider">
+        <!-- <div class="carousel-fixed-item center">
+            <span class="white-text" style="font-size: 25px;"><<< Swip >>> </span> 
+          </div> -->
+         
+              <a *ngFor="let produtcImages of product.images" class="carousel-item"><img src="/assets/product/{{produtcImages.img_url}}" class="responsive-img"></a>
+              
+    </div>
+    </div>
+    <div class="col s12 m12 l5" >
+     <br>
+   <div class="row">
+     <div class="col s8 m8 l8"><h5>{{product.product_name}}</h5></div>
+     <div class="col s4 m4 l4"> <img src="https://www.trzcacak.rs/file/max/21/212058_veg-icon-png.png" style="height:50px; width: 50px;" class="responsive-img"> </div>
+   </div>
+    <p> MRP: <del>Rs.40</del> Price: Rs.{{product.product_price}} <b>You save 20%</b> </p><br>
+    <!-- <a class="btn-flat">1</a> -->
+    <label for="#test5" style="color: #000000; font-size: 18px;"> Quantity {{quantityValue}}</label>
+    <p class="range-field">
+      <input type="range" id="test5" [(ngModel)]="quantityValue" min="1" max="10"/>
+    </p>
+    <a class="waves-effect   btn" style="background-color: #ffffff; color: chartreuse;"><b>Add To Cart</b></a>
+    <a class="waves-effect   btn" style=" margin-left: 5%; width: 150px; background-color: #72ec7a;" (click)="buyProduct(product.productId,quantityValue)"><b>Buy</b></a>
+    <hr>
+    <div *ngFor="let vm of product.productDescription">
+      <div>
+        <p><b>Vitamins and minerals: </b> </p>
+         {{vm.vitamins}}
+      </div>
+      <div>
+        <p><b>Benefits:</b></p>
+        <p>{{vm.benefits}} </p>
+      </div>
+    </div>
+    <div class="offerDiv">
+      <a href="#">  
+      <div class="row offerDiv">
+        <div class="col s2 m2 l2"><span class="left-align">5kg</span></div>
+        <div class="col s8 m8 l8"><span class="center-align"> Rs.<del>100</del> MRP.80 <i style="color: red;"> Save 20%</i> </span></div>
+        <div class="col s2 m2 l2" style=" background-color: rgb(0, 247, 255);padding-top: 2%;"><span class="right-align"><i class="small material-icons">check</i></span></div>
+      </div>
+      </a>
+    </div>
+    </div> 
+  </div>  
+  <div class="divider"></div>
+</div>
+ <br>

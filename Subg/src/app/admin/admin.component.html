@@ -1,0 +1,81 @@
+<div class="container-fluid back" >
+<nav>
+
+    <div class="container-fluid" style="padding-right: 5%;">
+        <ul class="right hide-on-med-and-down">
+          <li> <a href="#"> <i class="large material-icons">notifications_none</i></a></li>
+          <li ><img src="https://gravatar.com/avatar/961997eb7fd5c22b3e12fb3c8ca14e11?s=80&d=https://codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png" width="48px" height="48px" alt="" class="circle responsive-img valign profile-image"></li>
+        </ul>
+      </div>
+
+  <div class="container" style="padding-right: 12%;">
+    <ul class="right hide-on-med-and-down">
+      <div class="row">
+        <div class="col s12">
+          <div class="row">
+            <div class="input-field searchWidth">
+              <i class="material-icons prefix">search</i>
+              <input type="text" id="autocomplete" class="autocomplete white" style="border-radius: 10px;" placeholder="Search">
+            </div>
+          </div>
+        </div>
+      </div>
+    </ul>
+  </div>
+
+
+  <ul id="slide-out" class="side-nav right">
+    <li class="sidenav-header blue">
+        <div class="row">
+          <h5 class="center hh"> Subg </h5>
+          </div>
+    </li>
+
+
+    <li> <a class = "dropdown-button" href = "#" data-activates = "dash-dropdown"><i class="large material-icons left ic">dashboard</i>DashBoard
+      <i class = "mdi-navigation-arrow-drop-down right ic"></i></a> </li>
+      <ul id = "dash-dropdown" class = "dropdown-content">
+        <li> <a href="#"> <i class="Tiny material-icons left ic">panorama_fish_eye</i>Mordern</a></li>
+        <li> <a routerLink="/admin/e-com"> <i class="Tiny material-icons left ic">panorama_fish_eye</i>E-Commerce</a></li>
+     </ul>
+
+
+    <li> <a class = "dropdown-button" href = "#" data-activates = "product-dropdown"><i class="large material-icons left ic">add</i>Add Product
+      <i class = "mdi-navigation-arrow-drop-down right ic"></i></a> </li>
+      <ul id = "product-dropdown" class = "dropdown-content">
+        <li> <a href="#"> <i class="large material-icons left ic">add</i>Product</a></li>
+        <li> <a href="#"> <i class="large material-icons left ic">add</i>SubCategory</a></li>
+        <li> <a href="#"> <i class="large material-icons left ic">add</i>Category</a></li>
+     </ul>
+
+    <li  class="hading"> <span class="sp">APPLICATION</span> </li>
+    <li> <a href="#"> <i class="large material-icons left ic">mail_outline</i>E-Mail</a> </li>
+    <li> <a href="#"> <i class="large material-icons left ic">import_contacts</i>Contacts</a> </li>
+    <li> <a href="#"> <i class="large material-icons left ic">chat</i>Chat</a> </li>
+    <li> <a href="#"> <i class="large material-icons left ic">date_range</i>Calendar</a> </li>
+    <li> <a class = "dropdown-button" href = "#" data-activates = "e-dropdown"><i class="large material-icons left ic">shopping_cart</i>e-Commerce<i class = "mdi-navigation-arrow-drop-down right ic"></i></a> </li>
+      <ul id = "e-dropdown" class = "dropdown-content">
+        <li> <a href="#"> <i class="Tiny material-icons left ic">panorama_fish_eye</i>Products Page</a></li>
+        <li> <a href="#"> <i class="Tiny material-icons left ic">panorama_fish_eye</i>Pricing</a></li>
+        <li> <a href="#"> <i class="Tiny material-icons left ic">panorama_fish_eye</i>Invoice</a></li>
+     </ul>
+     <li  class="hading"> <div class="center-align">Pages</div> </li>
+     <li> <a class = "dropdown-button" href = "#" data-activates = "user-dropdown"><i class="large material-icons left ic">face</i>User<i class = "mdi-navigation-arrow-drop-down right ic"></i></a> </li>
+     <ul id = "user-dropdown" class = "dropdown-content">
+       <li> <a routerLink="/admin/userDetail"> <i class="Tiny material-icons left ic">panorama_fish_eye</i>User detail</a></li>
+       <li> <a href="#"> <i class="Tiny material-icons left ic">panorama_fish_eye</i>Order</a></li>
+    </ul>
+
+    <li> <a class = "dropdown-button" href = "#" data-activates = "media-dropdown"><i class="large material-icons left ic">mms</i>Media<i class = "mdi-navigation-arrow-drop-down right ic"></i></a> </li>
+     <ul id = "media-dropdown" class = "dropdown-content">
+       <li> <a href="#"> <i class="Tiny material-icons left ic">panorama_fish_eye</i>#</a></li>
+       <li> <a href="#"> <i class="Tiny material-icons left ic">panorama_fish_eye</i>#</a></li>
+    </ul>
+
+
+    <li>  </li>
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
+</nav>
+<router-outlet></router-outlet>
+</div>

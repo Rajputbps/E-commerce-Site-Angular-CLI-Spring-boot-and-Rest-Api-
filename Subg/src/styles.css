@@ -1,0 +1,39 @@
+body {
+    font-family: 'Poppins', sans-serif;
+     /* background-image: url("https://images6.alphacoders.com/397/thumb-1920-397826.jpg"); */
+  background-position: center center;
+  			background-repeat:  no-repeat;
+  			background-attachment: fixed;
+  			background-size:  cover;
+  			background-color: #999;
+}
+nav{
+  background-color: #55fc79;
+}
+#page-content{
+    -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%; 
+  height:100%;
+  bottom: 0; 
+  display: block;
+  position: absolute;
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  padding-top:17%;
+  font-family: 'Bad Script', cursive;
+}
+
+/* admin */
+
+header, main, footer {
+  padding-left: 240px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+

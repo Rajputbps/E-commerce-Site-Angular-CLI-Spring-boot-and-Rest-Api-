@@ -1,0 +1,229 @@
+<div class="container-fluid">
+  <div class="containerfluid">
+    <div class="slider">
+        <ul class="slides">
+          <li><a class="carousel-item" href="#one!"><img src="https://imageresizer.static9.net.au/Av1pGtLmj42JGecse6e_nuajiYo=/600x338/smart/http%3A%2F%2Fprod.static9.net.au%2F_%2Fmedia%2FNetwork%2FImages%2F2017%2F05%2F05%2F08%2F40%2F170505coach_vegetables.jpg" class="responsive-img" ></a></li>
+          <li><a class="carousel-item" href="#two!"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyijD8WqD_eCVlQ45Zl7fBqLktYehpudDzemI6jWY3Qh-prR6h" class="responsive-img"  ></a></li>
+          <li><a class="carousel-item" href="#three!"><img src="https://4.imimg.com/data4/ST/HT/MY-4742922/afghanistan-dry-fruits-250x250.jpg" class="responsive-img" ></a></li>
+          <li> <a class="carousel-item" href="#four!"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2ZfXO4RD1ih9zBlBbXg2xf6NrXmNU5x75icLiI2fHIwKksKvNQg" class="responsive-img" ></a></li>
+          <li> <a class="carousel-item" href="#five!"><img src="http://clickwaitget.com/wp-content/uploads/2018/01/Featured-image-garam-masala.jpg"  class="responsive-img" ></a></li>
+        </ul>
+        </div>
+
+         
+          <div class="container-fluid">
+              <div class="row ">
+                <div class="col  m2 l2 hide-on-small-only">
+                    <ul id="slide-out">
+                      <h6>Category</h6>
+                        <div class="divider"></div><br>
+                      <li>
+                        <div class="content white-text">
+                            <ul>
+                                <li><a href="#!">{{category.categoryName}}</a></li>
+                                <div class="content">
+                                    <li *ngFor= "let subCat of category.subCategories"><a routerLink="/getProduct/{{subCat.subcategoryId}}/{{category.categoryId}}" *ngIf="subCat.subcategoryId !== product.subcategoryId"> {{subCat.subCateName}} </a>
+                                      <a style="color: #72ec7a; font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 20px;" routerLink="/getProduct/{{subCat.subcategoryId}}/{{category.categoryId}}" *ngIf="subCat.subcategoryId === product.subcategoryId"> <b>{{subCat.subCateName}}</b> </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
+                      </li>
+                      <br>
+                      <h6 style="color: #fff;">Price</h6>
+                      <div class="divider"></div><br>
+                    <li>
+                              <label>
+                                <input type="checkbox" (change)="priceRange(10,50)"/>
+                                <span class="white-text">Rs. 10 to 50</span>
+                              </label>
+                             
+                                <label>
+                                  <input type="checkbox" (change)="priceRange(51,100)"/>
+                                  <span class="white-text">Rs. 51 to 100</span>
+                                </label>
+                              
+                                  <label>
+                                    <input type="checkbox" (change)="priceRange(101,150)" />
+                                    <span class="white-text">Rs. 101 to 150</span>
+                                  </label>
+                                 
+                                    <label>
+                                      <input type="checkbox" (change)="priceRange(151,200)"/>
+                                      <span class="white-text">Rs. 151 to 200</span>
+                                    </label>
+                                   
+                                      <label>
+                                        <input type="checkbox" (change)="priceRange(201,250)"/>
+                                        <span class="white-text">Rs. 201 to 250</span>
+                                      </label>
+
+                                      <label>
+                                          <input type="checkbox" (change)="priceRange(250,300)"/>
+                                          <span class="white-text">Rs. 250 to 300</span>
+                                        </label>
+                    </li>
+                    <br>
+                    <h6 style="color: #fff;">Quantity</h6>
+                    <div class="divider"></div><br>
+                    <li>
+                        <form action="">
+                            
+                                <label>
+                                  <input type="checkbox" (change)="quantityRange(10,50)"/>
+                                  <span class="white-text">10 - 100g</span>
+                                </label>
+                               
+                                  <label>
+                                    <input type="checkbox" (change)="quantityRange(101,250)"/>
+                                    <span class="white-text">101 - 250g</span>
+                                  </label>
+                                
+                                    <label>
+                                      <input type="checkbox" (change)="quantityRange(251,500)"/>
+                                      <span class="white-text">251 - 500g</span>
+                                    </label>
+                                   
+                                      <label>
+                                        <input type="checkbox" (change)="quantityRange(500,1000)"/>
+                                        <span class="white-text">500 - 1Kg</span>
+                                      </label>
+                                  
+  
+                                        <label>
+                                            <input type="checkbox" (change)="quantityRange(1000,5000)"/>
+                                            <span class="white-text">1 - 5kg</span>
+                                          </label>
+                                       
+                        </form>
+                      </li>
+                    </ul>
+                </div>
+                <div class="col s12 m8 l10">
+                     
+                        <div><h5 class="center-align">{{category.categoryName}}</h5></div>
+                        <div> <p> All Products</p> </div>  
+                         
+                      <div class="divider"></div><br>
+                
+                      <div class="row">
+                          <div *ngFor= "let prod of product.products" >
+                            <!-- <div *ngIf="p_range1 >= prod.product_price && p_range2 <= prod.product_price"></div> -->
+                          <div class="col s12 m6 l3">
+                              
+                                <div class="card">  
+                                    <a routerLink="/FreshVegetables/{{prod.product_name}}/{{prod.productId}}">
+                                  <div class="card-content white-text">
+                                     <img src="https://4.imimg.com/data4/AY/TE/IMOB-27708947/c__data_users_defapps_appdata_internetexplorer_temp_sav-500x500.jpg" alt="" width="100%" height="150px">
+                                     <span class="card-title center-align blue-text"><h6>{{prod.product_name}}</h6> </span>
+                                  </div> </a>
+                                  <div class="card-action">
+                                      <span class="left-align blue-text">Price: {{prod.product_price}}/kg</span>
+                                      <label class="right blue-text">
+                                          <input type="checkbox"  (change)="addCart(prod.productId)"/>  
+                                          <span>Pick</span> 
+                                        </label>
+                                        
+                                        <!-- <a class="btn-flat " (click)="addCart(prod.productId)"><i class="material-icons">add_shopping_cart</i></a> -->
+                                    </div>   
+                                </div>
+                             
+                          </div>  
+                </div>
+              </div>     
+          </div>
+        </div>
+</div>
+
+
+
+
+ 
+ 
+ <button data-target="modalproduct1" data-activates="modalproduct1" class="modal-trigger btn-large green fixed-action-btn btn-floating hide-on-med-and-up"><i class="material-icons large">mode_edit</i></button>
+
+<!-- Modal Structure -->
+<div id="modalproduct1" class="modal top-sheet" style="background-color: #72ec7a;">
+  <div class="modal-content">
+      <h6 style="color: #fff;">Price</h6>
+      <div class="divider"></div>
+        <ul class="collection productPricepop">
+            <li class="collection-item productPricepop">
+                <label>
+                    <input type="checkbox" (change)="priceRange(10,50)"/>
+                    <span class="white-text">Rs. 10 to 50</span>
+                  </label>
+            </li>
+            <li class="collection-item productPricepop">
+                <label>
+                    <input type="checkbox" (change)="priceRange(51,100)"/>
+                    <span class="white-text">Rs. 51 to 100</span>
+                  </label>
+            </li>
+            <li class="collection-item productPricepop">
+                <label>
+                    <input type="checkbox" (change)="priceRange(101,150)" />
+                    <span class="white-text">Rs. 101 to 150</span>
+                  </label>
+                 
+            </li>
+            <li class="collection-item productPricepop">
+                <label>
+                    <input type="checkbox" (change)="priceRange(151,200)"/>
+                    <span class="white-text">Rs. 151 to 200</span>
+                  </label>
+            </li>
+            <li class="collection-item productPricepop">
+                <label>
+                    <input type="checkbox" (change)="priceRange(201,250)"/>
+                    <span class="white-text">Rs. 201 to 250</span>
+                  </label>
+            </li>
+            <li class="collection-item productPricepop">
+                <label>
+                    <input type="checkbox" (change)="priceRange(250,300)"/>
+                    <span class="white-text">Rs. 250 to 300</span>
+                  </label>
+            </li>
+          </ul>
+          <h6 style="color: #fff;">Quantity</h6>
+          <div class="divider"></div>
+          <ul class="collection">
+              <li class="collection-item productPricepop">
+  
+                  <label>
+                      <input type="checkbox" (change)="quantityRange(10,50)"/>
+                      <span class="white-text">10 - 100g</span>
+                    </label>
+  
+              </li>
+              <li class="collection-item productPricepop">
+                  <label>
+                      <input type="checkbox" (change)="quantityRange(101,250)"/>
+                      <span class="white-text">101 - 250g</span>
+                    </label>
+              </li>
+              <li class="collection-item productPricepop">
+                  <label>
+                      <input type="checkbox" (change)="quantityRange(251,500)"/>
+                      <span class="white-text">251 - 500g</span>
+                    </label>
+              </li>
+              <li class="collection-item productPricepop">
+                  <label>
+                      <input type="checkbox" (change)="quantityRange(500,1000)"/>
+                      <span class="white-text">500 - 1Kg</span>
+                    </label>
+              </li>
+              <li class="collection-item productPricepop">
+                  <label>
+                      <input type="checkbox" (change)="quantityRange(1000,5000)"/>
+                      <span class="white-text">1 - 5kg</span>
+                    </label>
+              </li>
+            </ul>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: SubgBackend Maven Webapp
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: rajput
+Implementation-Vendor-Id: com.subg
+Build-Jdk: 1.8.0_252
+Implementation-URL: http://maven.apache.org
+Created-By: Maven Integration for Eclipse
+

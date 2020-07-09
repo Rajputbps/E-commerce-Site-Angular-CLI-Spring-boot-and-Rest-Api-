@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringBootApplications<SubgBackend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.subg.SpringBootApplications",
+            "projectName": "SubgBackend",
+            "args": ""
+        }
+    ]
+}
